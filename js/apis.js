@@ -1,135 +1,174 @@
-var BASEURL = 'https://nhakhoa-d418.restdb.io/rest/';
-var TOKEN = 'd062c603b4ade764a0eea854287175b7d55dd';
+const BASEURL = 'https://nhakhoa-d418.restdb.io/rest/';
+const TOKEN = '61968472fc71545b0f5e092a';
+const db = new restdb(TOKEN);
 
-var postData = (url, body, params = null, successCallback, failCallback) => {
-    url = new URL(BASEURL + url);
-    if (params) {
-        Object.keys(params).forEach(key => url.searchParams.append(key, params[key]))
-    }
+const postData = (url, body, params = null, successCallback, failCallback) => {
+    // url = new URL(BASEURL + url);
+    // if (params) {
+    //     Object.keys(params).forEach(key => url.searchParams.append(key, params[key]))
+    // }
 
     console.log('body', JSON.stringify(body));
-    $.ajax({
-        url: url,
-        method: 'POST',
-        data: JSON.stringify(body),
-        headers: {
-            "content-type": "application/json",
-            "x-apikey": TOKEN,
-            "cache-control": "no-cache",
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            'TOKEN': TOKEN,
-            'Access-Control-Allow-Origin': '*',
-            xhrFields: {
-                withCredentials: false
-            }
-        },
-        dataType: 'json',
-        crossDomain: false,
+    const instance = new db.products(body);
+    instance.save(function(err, res){
+        if (err){
+            failCallback(err);  
+        } else {
+            successCallback(res);
+        }
+    });
 
-        xhrFields: {
-            withCredentials: false
-        },
-        success: successCallback,
-        error: failCallback
+    // $.ajax({
+    //     url: url,
+    //     method: 'POST',
+    //     data: JSON.stringify(body),
+    //     headers: {
+    //         "content-type": "application/json",
+    //         "x-apikey": TOKEN,
+    //         "cache-control": "no-cache",
+    //         'Accept': 'application/json',
+    //         'Content-Type': 'application/json',
+    //         'TOKEN': TOKEN,
+    //         'Access-Control-Allow-Origin': '*',
+    //         xhrFields: {
+    //             withCredentials: false
+    //         }
+    //     },
+    //     dataType: 'json',
+    //     crossDomain: false,
+
+    //     xhrFields: {
+    //         withCredentials: false
+    //     },
+    //     success: successCallback,
+    //     error: failCallback
+    // });
+}
+
+
+const putData = (url, body, params = null, successCallback, failCallback) => {
+    // url = new URL(BASEURL + url);
+    // if (params) {
+    //     Object.keys(params).forEach(key => url.searchParams.append(key, params[key]))
+    // }
+
+    // console.log('body', JSON.stringify(body));
+    // $.ajax({
+    //     url: url,
+    //     method: 'PUT',
+    //     data: JSON.stringify(body),
+    //     headers: {
+    //         "content-type": "application/json",
+    //         "x-apikey": TOKEN,
+    //         "cache-control": "no-cache",
+    //         'Accept': 'application/json',
+    //         'Content-Type': 'application/json',
+    //         'TOKEN': TOKEN,
+    //         'Access-Control-Allow-Origin': '*',
+    //         xhrFields: {
+    //             withCredentials: false
+    //         }
+    //     },
+    //     dataType: 'json',
+    //     crossDomain: false,
+
+    //     xhrFields: {
+    //         withCredentials: false
+    //     },
+    //     success: successCallback,
+    //     error: failCallback
+    // });
+
+    console.log('body', JSON.stringify(body));
+    const instance = new db.products(body);
+    instance.save(function(err, res){
+        if (err){
+            failCallback(err);  
+        } else {
+            successCallback(res);
+        }
     });
 }
 
 
-var putData = (url, body, params = null, successCallback, failCallback) => {
-    url = new URL(BASEURL + url);
-    if (params) {
-        Object.keys(params).forEach(key => url.searchParams.append(key, params[key]))
-    }
+const getData = (url, params, successCallback, failCallback) => {
+    // url = new URL(BASEURL + url);
+    // if (params) { Object.keys(params).forEach(key => url.searchParams.append(key, params[key])) }
+    // console.log(params)
+    // $.ajax({
+    //     url: url,
+    //     crossDomain: false,
+    //     method: 'GET',
+    //     headers: {
+    //         "content-type": "application/json",
+    //         "x-apikey": TOKEN,
+    //         "cache-control": "no-cache",
+    //         'Accept': 'application/json',
+    //         'Content-Type': 'application/json',
+    //         'TOKEN': TOKEN,
+    //         'Access-Control-Allow-Origin': '*',
+    //         xhrFields: {
+    //             withCredentials: false
+    //         }
+    //     },
+    //     dataType: 'json',
 
-    console.log('body', JSON.stringify(body));
-    $.ajax({
-        url: url,
-        method: 'PUT',
-        data: JSON.stringify(body),
-        headers: {
-            "content-type": "application/json",
-            "x-apikey": TOKEN,
-            "cache-control": "no-cache",
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            'TOKEN': TOKEN,
-            'Access-Control-Allow-Origin': '*',
-            xhrFields: {
-                withCredentials: false
-            }
-        },
-        dataType: 'json',
-        crossDomain: false,
-
-        xhrFields: {
-            withCredentials: false
-        },
-        success: successCallback,
-        error: failCallback
-    });
-}
-
-
-var getData = (url, params, successCallback, failCallback) => {
-    url = new URL(BASEURL + url);
-    if (params) { Object.keys(params).forEach(key => url.searchParams.append(key, params[key])) }
-
-    $.ajax({
-        url: url,
-        crossDomain: false,
-        method: 'GET',
-        headers: {
-            "content-type": "application/json",
-            "x-apikey": TOKEN,
-            "cache-control": "no-cache",
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            'TOKEN': TOKEN,
-            'Access-Control-Allow-Origin': '*',
-            xhrFields: {
-                withCredentials: false
-            }
-        },
-        dataType: 'json',
-
-        xhrFields: {
-            withCredentials: false
-        },
-        success: successCallback,
-        error: failCallback
+    //     xhrFields: {
+    //         withCredentials: false
+    //     },
+    //     success: successCallback,
+    //     error: failCallback
+    // });
+ 
+    const query = {}; // all
+    const hint = {"$max": params && params.pageSize || 200}; // first 10 only
+    db[url].find(query, hint, function(err, productlist) {
+        if (err) {
+            failCallback && failCallback(err);
+        } else {
+            successCallback(productlist);
+        }
     });
 };
 
 
-var delteData = (url, params, successCallback, failCallback) => {
-    url = new URL(BASEURL + url);
-    if (params) {
-        Object.keys(params).forEach(key => url.searchParams.append(key, params[key]))
-    }
+const delteData = (url, body, successCallback, failCallback) => {
+    // url = new URL(BASEURL + url);
+    // if (params) {
+    //     Object.keys(params).forEach(key => url.searchParams.append(key, params[key]))
+    // }
 
-    $.ajax({
-        url: url,
-        method: 'DELETE',
-        headers: {
-            "content-type": "application/json",
-            "x-apikey": TOKEN,
-            "cache-control": "no-cache",
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            'TOKEN': TOKEN,
-            'Access-Control-Allow-Origin': '*',
-            xhrFields: {
-                withCredentials: false
-            }
-        },
-        dataType: 'json',
-        crossDomain: false,
+    // $.ajax({
+    //     url: url,
+    //     method: 'DELETE',
+    //     headers: {
+    //         "content-type": "application/json",
+    //         "x-apikey": TOKEN,
+    //         "cache-control": "no-cache",
+    //         'Accept': 'application/json',
+    //         'Content-Type': 'application/json',
+    //         'TOKEN': TOKEN,
+    //         'Access-Control-Allow-Origin': '*',
+    //         xhrFields: {
+    //             withCredentials: false
+    //         }
+    //     },
+    //     dataType: 'json',
+    //     crossDomain: false,
 
-        xhrFields: {
-            withCredentials: false
-        },
-        success: successCallback,
-        error: failCallback
+    //     xhrFields: {
+    //         withCredentials: false
+    //     },
+    //     success: successCallback,
+    //     error: failCallback
+    // });
+    console.log('body', JSON.stringify(body));
+    const instance = new db.products(body);
+    instance.delete(function(err, res){
+        if (err){
+            failCallback(err);  
+        } else {
+            successCallback(res);
+        }
     });
 }
