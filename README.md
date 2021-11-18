@@ -1,10 +1,8 @@
-# DatHangJS
-Đặt hàng báo gấm code thuần HTML, css, JS
+# Nha Khoa
+Clone from http://emax.medent.vn/default.aspx
 
 
 https://www.000webhost.com/
 
 damie.tk
-BE: https://demodb-4307.restdb.io
-
-Deploy: https://pc-henieken.000webhostapp.com/pages/admin-product/admin-product.html
+BE: https://nhakhoa-d418.restdb.io/
