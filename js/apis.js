@@ -91,7 +91,7 @@ const putData = (url, body, params = null, successCallback, failCallback) => {
 }
 
 
-const getData = (url, params, successCallback, failCallback) => {
+const getData = (url, query, successCallback, failCallback) => {
     // url = new URL(BASEURL + url);
     // if (params) { Object.keys(params).forEach(key => url.searchParams.append(key, params[key])) }
     // console.log(params)
@@ -120,8 +120,7 @@ const getData = (url, params, successCallback, failCallback) => {
     //     error: failCallback
     // });
  
-    const query = {}; // all
-    const hint = {"$max": params && params.pageSize || 200}; // first 10 only
+    const hint = {}; // {"$max": 2000}; // first 10 only
     db[url].find(query, hint, function(err, productlist) {
         if (err) {
             failCallback && failCallback(err);
